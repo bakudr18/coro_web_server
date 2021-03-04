@@ -1,0 +1,9 @@
+tiny
+*.o
+*.o.d
+*.dSYM
+.vscode
+.devcontainer
+core*
+tags
+cscope.*
