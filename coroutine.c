@@ -65,33 +65,3 @@ void start(coroutine* c, func f, void* arg, void* sp)
   (*p->f)(p->arg);
   longjmp(p->c->caller_context, DONE);
 }
-/*
-typedef struct {
-  coroutine* c;
-  int fd;
-} server;
-
-void iterate(void* p) {
-  server* it = (server*)p;
-  int fd = it->fd;
-  for(int i = 0; i < 5; i++){
-      printf("iterate i %d\n", i);  
-      yield(it->c);
-  }
-}
-
-#define N 1000
-
-int main() {
-  coroutine c;
-  int stack[N];
-  server it = {&c, 2};
-  start(&c, &iterate, &it, stack+N);
-  int i = 0;
-  while(next(&c)) {
-    printf("main i %d\n", i);
-    i++;
-  }
-}
-
-*/
